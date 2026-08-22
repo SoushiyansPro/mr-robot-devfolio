@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HIDDEN - Software Developer / Programmer">
+    <title>Resume - HIDDEN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #555555;
+            --border-color: #e5e5e5;
+            --accent: #000000;
+            --surface: #f7f7f7;
+            --english-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --persian-font: "Vazirmatn", Tahoma, Arial, sans-serif;
+            --transition: 180ms ease;
+        }
+
+        html[data-theme="dark"] {
+            --bg: #0d0d0d;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --border-color: #292929;
+            --accent: #ffffff;
+            --surface: #171717;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html[data-theme="auto"] {
+                --bg: #0d0d0d;
+                --text-primary: #f0f0f0;
+                --text-secondary: #a0a0a0;
+                --border-color: #292929;
+                --accent: #ffffff;
+                --surface: #171717;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 40px 20px;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        html[lang="en"] body {
+            font-family: var(--english-font);
+        }
+
+        html[lang="fa"] body {
+            font-family: var(--persian-font);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        html[lang="fa"] h1 {
+            letter-spacing: 0;
+        }
+
+        .subtitle {
+            margin-top: 6px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        html[lang="fa"] .subtitle {
+            letter-spacing: 0;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 6px;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 2px;
+            padding: 2px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--surface);
+        }
+
+        .control-button {
+            padding: 5px 8px;
+            border: 0;
+            border-radius: 3px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        .control-button:hover {
+            color: var(--text-primary);
+        }
+
+        .control-button.active {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        html[lang="fa"] h2 {
+            letter-spacing: 0;
+        }
+
+        h2::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--border-color);
+        }
+
+        .about-text {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            padding: 6px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: var(--english-font);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--text-primary);
+            background-color: var(--text-primary);
+            color: var(--bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            margin-bottom: 4px;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        html[lang="fa"] .contact-label {
+            letter-spacing: 0;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            font-family: var(--english-font);
+            font-size: 0.85rem;
+            font-weight: 500;
+            overflow-wrap: anywhere;
+            text-decoration: none;
+            transition: opacity var(--transition);
+        }
+
+        .contact-link:hover {
+            opacity: 0.6;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        html[lang="fa"] .subtitle,
+        html[lang="fa"] .about-text,
+        html[lang="fa"] h2,
+        html[lang="fa"] footer {
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 28px 16px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .controls {
+                justify-content: flex-start;
+            }
+
+            html[dir="rtl"] .controls {
+                justify-content: flex-end;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        @media print {
+
+            :root,
+            html[data-theme="dark"],
+            html[data-theme="auto"] {
+                --bg: #ffffff;
+                --text-primary: #000000;
+                --text-secondary: #444444;
+                --border-color: #d5d5d5;
+                --accent: #000000;
+                --surface: #ffffff;
+            }
+
+            body {
+                padding: 0;
+            }
+
+            .controls {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>HIDDEN</h1>
+                <div class="subtitle" data-en="Software Developer / Programmer"
+                    data-fa="توسعه‌دهنده نرم‌افزار / برنامه‌نویس">
+                    Software Developer / Programmer
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group" role="group" aria-label="Language selector">
+                    <button class="control-button language-button" data-language="en" type="button"
+                        aria-label="Switch to English" aria-pressed="true">EN</button>
+                    <button class="control-button language-button" data-language="fa" type="button"
+                        aria-label="تغییر به زبان فارسی" aria-pressed="false">FA</button>
+                </div>
+
+                <div class="control-group" role="group" aria-label="Theme selector">
+                    <button class="control-button theme-button" data-theme-value="light" data-en-label="Light"
+                        data-fa-label="روشن" type="button" aria-pressed="false">Light</button>
+                    <button class="control-button theme-button" data-theme-value="dark" data-en-label="Dark"
+                        data-fa-label="تیره" type="button" aria-pressed="false">Dark</button>
+                    <button class="control-button theme-button" data-theme-value="auto" data-en-label="Auto"
+                        data-fa-label="خودکار" type="button" aria-pressed="true">Auto</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <h2 data-en="About" data-fa="درباره من">About</h2>
+                <p class="about-text"
+                    data-en="Software developer with a focus on building efficient, scalable applications and secure systems. Experienced in multi-language backend development, web architecture, and clean code practices."
+                    data-fa="توسعه‌دهنده نرم‌افزار با تمرکز بر ساخت برنامه‌های کارآمد، مقیاس‌پذیر و سیستم‌های امن. دارای تجربه در توسعه بک‌اند چندزبانه، معماری وب و پیاده‌سازی کد تمیز.">
+                    Software developer with a focus on building efficient, scalable applications and secure systems.
+                    Experienced in multi-language backend development, web architecture, and clean code practices.
+                </p>
+            </section>
+
+            <section>
+                <h2 data-en="Tech Stack & Languages" data-fa="فناوری‌ها و زبان‌ها">Tech Stack & Languages</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Go</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-en="Connect" data-fa="ارتباط">Connect</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-label" data-en="Email" data-fa="ایمیل">Email</span>
+                        <a href="mailto:hiddenirancoder@gmail.com" class="contact-link">hiddenirancoder@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label" data-en="Telegram" data-fa="تلگرام">Telegram</span>
+                        <a href="https://t.me/Hidden_iran_A" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">@Hidden_iran_A</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label" data-en="GitHub" data-fa="گیت‌هاب">GitHub</span>
+                        <a href="https://github.com/hiddencoderdark" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">github.com/hiddencoderdark</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <span data-en="© HIDDEN" data-fa="© HIDDEN">© HIDDEN</span>
+            <span data-en="Minimalist Portfolio" data-fa="پورتفولیوی مینیمال">Minimalist Portfolio</span>
+        </footer>
+    </div>
+
+    <script>
+        const html = document.documentElement;
+        const languageButtons = document.querySelectorAll(".language-button");
+        const themeButtons = document.querySelectorAll(".theme-button");
+        const translatableElements = document.querySelectorAll("[data-en][data-fa]");
+
+        function updateLanguage(language) {
+            const isPersian = language === "fa";
+            html.lang = language;
+            html.dir = isPersian ? "rtl" : "ltr";
+
+            translatableElements.forEach(element => {
+                element.textContent = isPersian ? element.dataset.fa : element.dataset.en;
+            });
+
+            document.title = isPersian ? "رزومه - HIDDEN" : "Resume - HIDDEN";
+
+            languageButtons.forEach(button => {
+                const active = button.dataset.language === language;
+                button.classList.toggle("active", active);
+                button.setAttribute("aria-pressed", String(active));
+            });
+
+            themeButtons.forEach(button => {
+                button.textContent = isPersian ? button.dataset.faLabel : button.dataset.enLabel;
+            });
+
+            localStorage.setItem("resume-language", language);
+        }
+
+        function updateTheme(theme) {
+            html.dataset.theme = theme;
+            themeButtons.forEach(button => {
+                const active = button.dataset.themeValue === theme;
+                button.classList.toggle("active", active);
+                button.setAttribute("aria-pressed", String(active));
+            });
+            localStorage.setItem("resume-theme", theme);
+        }
+
+        languageButtons.forEach(button => {
+            button.addEventListener("click", () => updateLanguage(button.dataset.language));
+        });
+
+        themeButtons.forEach(button => {
+            button.addEventListener("click", () => updateTheme(button.dataset.themeValue));
+        });
+
+        updateLanguage(localStorage.getItem("resume-language") || "en");
+        updateTheme(localStorage.getItem("resume-theme") || "auto");
+    </script>
+</body>
+
+</html>
